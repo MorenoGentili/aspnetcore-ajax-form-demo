@@ -14,7 +14,7 @@ Nella view [Views/Home/Index.cshtml](Views/Home/Index.cshtml) si trova un `form`
  </form>
 ```
 
- *  Sempre all'interno della view [Views/Home/Index.cshtml](Views/Home/Index.cshtml) si trova la funzione JavaScript `sendAjax` che si occupa di recuperare i dati dal form e inviarli con una richiesta Ajax grazie a jQuery.
+Sempre all'interno della view [Views/Home/Index.cshtml](Views/Home/Index.cshtml) si trova la funzione JavaScript `sendAjax` che si occupa di recuperare i dati dal form e inviarli con una richiesta Ajax grazie a jQuery.
  ```
 <script>
    function sendAjax(form) {
