@@ -1,0 +1,33 @@
+﻿@model TitleEditInputModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <h1 class="display-4">Modifica titolo</h1>
+    <p>L'invio di questo form verrà intercettato con JavaScript e i suoi contenuti saranno inviati via ajax. In questo modo, la pagina corrente non verrà ricaricata.</p>
+
+    <!-- Intercettiamo il submit del form gestendo l'evento onsubmit -->
+    <form method="post" asp-action="Edit" onsubmit="sendAjax(this); return false;" class="form-inline">
+        <input type="text" asp-for="Title" class="form-control">
+        <button class="btn btn-primary ml-1">Salva</button>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        function sendAjax(form) {
+            //Riceviamo il form come parametro
+            //Da esso attingiamo il metodo e la destinazione della richiesta
+            $.ajax({
+                type: form.method,
+                url: form.action,
+                data: $(form).serialize(),
+                success: function(data) {
+                    //Il parametro data contiene la risposta del server
+                    alert("Il form è stato inviato senza causare ricaricamenti di pagina!\nIl server ha risposto: '" + data.status + "'");
+                }
+            });
+        }
+    </script>
+}
